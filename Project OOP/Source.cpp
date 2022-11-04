@@ -48,14 +48,14 @@ int main() {
 				int search_time = end_time - start_time;
 				cout <<"\n\nYou played the game for " << search_time / 1000 << " seconds"<<endl;
 
-				system("pause");
+				/*system("pause");
 
-				system("cls");
+				system("cls");*/
 				if (word.lost()) {
-					cout << "\n\n\t\tYOU DIED!" << endl;
+					cout << "\n\n\t\tYOU DIED!\n\n\n" << endl;
 				}
 				else if (word.won()) {
-					cout << "\n\n\t\tYOU WON!" << endl;
+					cout << "\n\n\t\tYOU WON!\n\n\n" << endl;
 				}
 				system("pause");
 				break;

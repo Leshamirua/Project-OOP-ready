@@ -30,12 +30,6 @@ void Word::checkletter(char c)
 	if (!IsPresent) {//если буква ошибочна, тогда она добавляется в список ошибок
 		errors++;
 		faultlist.insert(faultlist.end(), c);
-		/*for (int i = 0; i < faultlist.length(); i++) {
-			if (c == faultlist[i]) {
-				errors++;
-				faultlist.insert(faultlist.end(), c);
-			}
-		}*/
 	}
 }
 

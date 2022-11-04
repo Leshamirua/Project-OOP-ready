@@ -17,17 +17,8 @@ void List::recount()
 	count = 0;
 	ifstream file(path, ios::out);
 	string line;
-	while (getline(file, line)) {
+	while (getline(file, line))
 		count++;
-	}
-	cout << "Count: " << count;
-	/*char n;
-	while (!file.eof()) {
-		n = file.get();
-		if (n == '\n') {
-			count+=1;
-		}
-	}*/
 	file.close();
 }
 
@@ -36,7 +27,7 @@ string List::random()
 	string ourword;
 	recount();
 	if (count < 1) {
-		cout << "no enough words";
+		cout << "Not enough words" << endl;
 		Addword();
 	}
 	srand(time(NULL));
@@ -62,6 +53,6 @@ void List::Addword()
 
 void List::Clean()
 {
-	fstream file("vocab.txt", ios::out | ios::trunc);
+	fstream file("list.txt", ios::out | ios::trunc);
 	file.close();
 }
