@@ -34,30 +34,30 @@ int main() {
 					cout << "\n" << "Let's try some letter:\n\t\t";
 					cin >> letter;
 					word.checkletter(letter); //как по мне самое главное, проверка на правильность буквы
-				} while (word.lost() || word.won());
+				} while (!word.lost() && !word.won());
+
 				system("cls");
+				//system("pause");
+				system("Color 0D");
+
+				paint.print(word.geterrors());
+
+				cout << "This was your word: " << word.getourword(); //финал и результат
+
+				int end_time = clock();
+				int search_time = end_time - start_time;
+				cout <<"\n\nYou played the game for " << search_time / 1000 << " seconds"<<endl;
+
 				system("pause");
-				{
-					system("Color 0D");
 
-					paint.print(word.geterrors());
-
-					cout << "This was your word: " << word.getourword(); //финал и результат
-
-					int end_time = clock();
-					int search_time = end_time - start_time;
-					cout <<"\n\nYou played the game for" << search_time << "seconds"<<endl;
-
-					system("pause");
-
-					system("cls");
-					if (word.lost() == true) {
-						cout << "\n\n\t\tYOU LOST!" << endl;
-					}
-					if (word.won() == true) {
-						cout << "\n\n\t\tYOU WON!" << endl;
-					}
+				system("cls");
+				if (word.lost()) {
+					cout << "\n\n\t\tYOU DIED!" << endl;
 				}
+				else if (word.won()) {
+					cout << "\n\n\t\tYOU WON!" << endl;
+				}
+				system("pause");
 				break;
 			}
 			case 2: { //добавление слова

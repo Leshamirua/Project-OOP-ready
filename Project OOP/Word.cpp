@@ -19,20 +19,23 @@ Word::~Word()
 
 void Word::checkletter(char c)
 {
-	short check = 1;
-	for (int i = 0; i <= ourword.length(); i++) {//цикл в котором производится поиск буквы
+	bool IsPresent = false;
+	for (int i = 0; i < ourword.length(); i++) {//цикл в котором производится поиск буквы
 		if (c == ourword[i]) {
 			empty[i] = c;
 			succesnum++;
-			check = 0;
+			IsPresent = true;
 		}
 	}
-	if (check == 1) {//если буква ошибочна, тогда она добавляется в список ошибок
-		for (int i = 0; i <= faultlist.length(); i++)
+	if (!IsPresent) {//если буква ошибочна, тогда она добавляется в список ошибок
+		errors++;
+		faultlist.insert(faultlist.end(), c);
+		/*for (int i = 0; i < faultlist.length(); i++) {
 			if (c == faultlist[i]) {
 				errors++;
 				faultlist.insert(faultlist.end(), c);
 			}
+		}*/
 	}
 }
 

@@ -16,13 +16,18 @@ void List::recount()
 {
 	count = 0;
 	ifstream file(path, ios::out);
-	char n;
+	string line;
+	while (getline(file, line)) {
+		count++;
+	}
+	cout << "Count: " << count;
+	/*char n;
 	while (!file.eof()) {
 		n = file.get();
 		if (n == '\n') {
 			count+=1;
 		}
-	}
+	}*/
 	file.close();
 }
 
@@ -30,7 +35,7 @@ string List::random()
 {
 	string ourword;
 	recount();
-	if (count == 0) {
+	if (count < 1) {
 		cout << "no enough words";
 		Addword();
 	}
@@ -50,7 +55,7 @@ void List::Addword()
 	cout << "Enter word:\t";
 	cin >> tmp;
 	ofstream file(path, ios::app | ios::out);
-	file << "\n" << tmp;
+	file << tmp << "\n";
 	file.close();
 	recount();
 }
